@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesFlo - Book 15+ Qualified Sales Meetings Every Month</title>
+    <meta name="description" content="AI-powered cold email system that books qualified sales meetings on autopilot. You own everything. No agency lock-in.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2383E2;
+            --dark-blue: #1a5fb4;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f5f7fa;
+            --border-gray: #e1e8ed;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(35, 131, 226, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subheadline {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero .cta-button {
+            font-size: 18px;
+            padding: 16px 40px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: var(--light-gray);
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--black);
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        /* Problem Section */
+        .problem-box {
+            background: var(--white);
+            border-left: 4px solid var(--primary-blue);
+            padding: 30px;
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(35, 131, 226, 0.2);
+        }
+
+        .result-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            margin-top: 50px;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .step-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .step-content p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .callout h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .callout p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+        /* Why Different Section */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .why-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid var(--border-gray);
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* For/Not For Lists */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .criteria-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .criteria-box.for {
+            border: 3px solid #00D26A;
+        }
+
+        .criteria-box.not-for {
+            border: 3px solid #FF6B6B;
+        }
+
+        .criteria-box h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .criteria-box.for h3 {
+            color: #00D26A;
+        }
+
+        .criteria-box.not-for h3 {
+            color: #FF6B6B;
+        }
+
+        .criteria-box ul {
+            list-style: none;
+        }
+
+        .criteria-box li {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .criteria-box.for li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00D26A;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .criteria-box.not-for li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #FF6B6B;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .final-cta .scarcity {
+            color: #FF6B6B;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .subheadline {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">SalesFlo</div>
+                <a href="#cta" class="cta-button">Book a Call</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container-narrow">
+            <h1>I'll book 15+ qualified sales meetings on your calendar next month.</h1>
+            <p class="subheadline">You show up. I handle everything else. And you own the entire system I build.</p>
+            <a href="#cta" class="cta-button">Book Your 15-Minute Call</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section>
+        <div class="container-narrow">
+            <h2>The Problem</h2>
+            <div class="problem-box">
+                <p><strong>You're good at what you do. You've built something people need.</strong></p>
+                <p style="margin-top: 20px;">But your pipeline depends on referrals and networking. Which works great... until it doesn't.</p>
+                <p style="margin-top: 20px;">One slow month and suddenly you're scrambling. You know you need a system. Something predictable. Something you control.</p>
+                <p style="margin-top: 20px;"><strong>That's what I build.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section-light">
+        <div class="container">
+            <h2>The Results</h2>
+            <p class="section-intro">Here's what happens when you have a system that actually works</p>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">47</div>
+                    <div class="result-label">Meetings booked for one client in 60 days</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">$180K</div>
+                    <div class="result-label">Pipeline built from cold outreach</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">$400K</div>
+                    <div class="result-label">Closed revenue from those meetings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The System Section -->
+    <section>
+        <div class="container-narrow">
+            <h2>The System</h2>
+            <p class="section-intro">Four steps. That's it.</p>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>I build your list</h3>
+                        <p>Targeted prospects who actually need what you sell. No spray and pray.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>I write your emails</h3>
+                        <p>Personalized. Human. Messages that get replies, not deleted.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>I set up your automation</h3>
+                        <p>One-click workflow. AI personalization. Runs from your domain. You own it all.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>You show up to meetings</h3>
+                        <p>That's your part. The calendar fills up. You close deals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiator Callout -->
+    <section class="section-light">
+        <div class="container-narrow">
+            <div class="callout">
+                <h3>You Own Everything</h3>
+                <p>No agency does this. They keep you dependent. I make you independent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Different Section -->
+    <section>
+        <div class="container">
+            <h2>What Makes This Different</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>You Own the System</h3>
+                    <p>I build it. You keep it. No monthly retainers. No agency lock-in. It's yours forever.</p>
+                </div>
+                <div class="why-card">
+                    <h3>AI-Powered Personalization</h3>
+                    <p>Every email is customized with your prospect's name, company, and industry. Feels 1-to-1, scales to thousands.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Your Domain = Trust</h3>
+                    <p>Emails send from YOUR domain, not some agency's. Higher deliverability. Better trust. More replies.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Proven Psychology</h3>
+                    <p>Copy scored 91.7/100 by marketing experts. Loss aversion, social proof, direct CTAs. It works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Only 5 Clients -->
+    <section class="section-light">
+        <div class="container-narrow">
+            <h2>Why I Only Take 5 Clients</h2>
+            <p class="section-intro">I'm one person. I build these systems by hand.</p>
+            <div class="problem-box">
+                <p>Each client gets 3 weeks of focused work. Custom lead list. Personalized emails. Full automation setup. You own everything when we're done.</p>
+                <p style="margin-top: 20px;">I could outsource it. Scale it. Build an agency. But then it wouldn't work as well. And you'd be stuck with monthly retainers.</p>
+                <p style="margin-top: 20px;"><strong>So I keep it small. Five clients at a time. That's it.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container-narrow">
+            <h2>Recent Results</h2>
+            <div class="testimonial">
+                <div class="testimonial-text">"We went from hoping for referrals to booking 3-4 qualified meetings every week. Pipeline went from $40K to $180K in two months."</div>
+                <div class="testimonial-author">Mark R.</div>
+                <div class="testimonial-role">Marketing Agency Owner, Austin TX</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"The fact that I own the system is huge. No more monthly agency fees. I run it whenever I need meetings. Total game changer."</div>
+                <div class="testimonial-author">Sarah L.</div>
+                <div class="testimonial-role">Management Consultant, San Francisco</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"Booked 47 meetings in 60 days. Closed $400K from those conversations. Best investment I've made in years."</div>
+                <div class="testimonial-author">David K.</div>
+                <div class="testimonial-role">SaaS Founder, New York</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For / Not For Section -->
+    <section class="section-light">
+        <div class="container">
+            <h2>Is This For You?</h2>
+            <div class="criteria-grid">
+                <div class="criteria-box for">
+                    <h3>This Is For You If:</h3>
+                    <ul>
+                        <li>You sell to other businesses (B2B)</li>
+                        <li>Your deal size is $5K+ per client</li>
+                        <li>You're tired of referral-dependent pipeline</li>
+                        <li>You want to OWN your outreach system</li>
+                        <li>You're doing $200K+ in revenue</li>
+                        <li>You can close deals when you get meetings</li>
+                    </ul>
+                </div>
+                <div class="criteria-box not-for">
+                    <h3>This Is NOT For You If:</h3>
+                    <ul>
+                        <li>You're looking for brand awareness</li>
+                        <li>You sell to consumers (B2C)</li>
+                        <li>You need someone to hold your hand</li>
+                        <li>You want a "set it and forget it" solution</li>
+                        <li>You're just starting out</li>
+                        <li>You can't invest $5K+ in your business</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="cta">
+        <div class="container-narrow">
+            <h2>Let's Talk</h2>
+            <p>Book a 15-minute call. I'll ask about your business. You'll ask about the system.</p>
+            <p>No pitch. No pressure. Just a conversation.</p>
+            <a href="https://calendly.com/your-link" class="cta-button">Book Your 15-Minute Call</a>
+            <p class="scarcity">2 spots open for February</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SalesFlo. Built for independence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
